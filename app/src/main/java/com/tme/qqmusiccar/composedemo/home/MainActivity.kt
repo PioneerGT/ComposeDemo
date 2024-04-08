@@ -33,10 +33,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -51,6 +49,7 @@ import com.tme.qqmusiccar.composedemo.R
 import com.tme.qqmusiccar.composedemo.content.AlbumListScene
 import com.tme.qqmusiccar.composedemo.content.PlayerScene
 import com.tme.qqmusiccar.composedemo.content.SongListScene
+import com.tme.qqmusiccar.composedemo.toolkit.FpsTrace
 import com.tme.qqmusiccar.composedemo.ui.ComposeDemoTheme
 import kotlinx.coroutines.delay
 
@@ -60,9 +59,13 @@ import kotlinx.coroutines.delay
  */
 class MainActivity: ComponentActivity() {
 
+    private val fpsTracer = FpsTrace()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         // enableEdgeToEdge(statusBarStyle = SystemBarStyle.auto(Color.TRANSPARENT, Color.TRANSPARENT))
         super.onCreate(savedInstanceState)
+
+        fpsTracer.setup(this)
 
         setContent {
             ComposeDemoTheme {
