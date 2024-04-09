@@ -24,6 +24,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.tme.qqmusiccar.widgedemo.WidgetActivity" android:exported="false" />
+        <activity android:name="com.tme.qqmusiccar.widgedemo.SongListActivity" android:exported="false" />
+        <activity android:name="com.tme.qqmusiccar.widgedemo.AlbumListActivity" android:exported="false" />
+
     </application>
 
 </manifest>

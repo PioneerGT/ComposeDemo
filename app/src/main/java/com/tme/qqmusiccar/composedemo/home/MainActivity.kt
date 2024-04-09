@@ -1,5 +1,6 @@
 package com.tme.qqmusiccar.composedemo.home
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -51,6 +52,7 @@ import com.tme.qqmusiccar.composedemo.content.PlayerScene
 import com.tme.qqmusiccar.composedemo.content.SongListScene
 import com.tme.qqmusiccar.composedemo.toolkit.FpsTrace
 import com.tme.qqmusiccar.composedemo.ui.ComposeDemoTheme
+import com.tme.qqmusiccar.widgedemo.WidgetActivity
 import kotlinx.coroutines.delay
 
 /**
@@ -76,7 +78,15 @@ class MainActivity: ComponentActivity() {
                         MainScene(
                             mainSceneViewModel,
                             onNavigate = {route->
-                                navController.navigate(route)
+                                when (route) {
+                                    Routes.WidgetDemo.route -> {
+                                        val intent = Intent(this@MainActivity, WidgetActivity::class.java)
+                                        this@MainActivity.startActivity(intent)
+                                    }
+                                    else -> {
+                                        navController.navigate(route)
+                                    }
+                                }
                             }
                         )
                     }
@@ -117,6 +127,8 @@ class MainActivity: ComponentActivity() {
         data object Player: Routes("player", "大图模糊")
         data object SongList: Routes("song_list", "歌曲列表")
         data object AlbumList: Routes("album_list", "专辑列表")
+
+        data object WidgetDemo: Routes("widget_demo", "WidgetDemo")
     }
 
     @Composable
@@ -205,7 +217,8 @@ class MainActivity: ComponentActivity() {
             Routes.Detail,
             Routes.Player,
             Routes.SongList,
-            Routes.AlbumList
+            Routes.AlbumList,
+            Routes.WidgetDemo
         )
 
         Column(

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <Button
+        android:id="@+id/jump_song_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="JUMP SONG LIST"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        />
+
+    <Button
+        android:id="@+id/jump_album_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="JUMP ALBUM LIST"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        />
+
+    <Button
+        android:id="@+id/jump_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="JUMP PLAYER PAGE"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        />
+
+</LinearLayout>
